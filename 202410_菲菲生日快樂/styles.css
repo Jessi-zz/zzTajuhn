@@ -95,7 +95,7 @@ header {
 .song-text {
     font-family: 'Noto Serif TC', serif;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 48px;
     letter-spacing: 1.6px;
     flex-grow: 1;
     word-wrap: break-word !important;
