@@ -32,7 +32,7 @@ header {
 .title-image {
     max-width: 300px;
     height: auto;
-    filter: drop-shadow(0px 0.815px 2.853px rgba(0, 0, 0, 0.46)) drop-shadow(0px 2.254px 7.889px rgba(0, 0, 0, 0.30)) drop-shadow(0px 5.426px 18.993px rgba(0, 0, 0, 0.23)) drop-shadow(0px 18px 63px rgba(0, 0, 0, 0.16));
+    filter: drop-shadow(0px 0.091px 5.661px rgba(0, 0, 0, 0.84)) drop-shadow(0px 0.25px 15.652px rgba(0, 0, 0, 0.55)) drop-shadow(0px 0.603px 37.684px rgba(0, 0, 0, 0.42)) drop-shadow(0px 2px 125px rgba(0, 0, 0, 0.29));
 }
 
 .divider {
@@ -41,7 +41,7 @@ header {
     margin-bottom: 20px;
     width: 100%;
     overflow: hidden;
-    filter: drop-shadow(0px 0.815px 2.853px rgba(0, 0, 0, 0.46)) drop-shadow(0px 2.254px 7.889px rgba(0, 0, 0, 0.30)) drop-shadow(0px 5.426px 18.993px rgba(0, 0, 0, 0.23)) drop-shadow(0px 18px 63px rgba(0, 0, 0, 0.16));
+    filter: drop-shadow(0px 0.091px 5.661px rgba(0, 0, 0, 0.84)) drop-shadow(0px 0.25px 15.652px rgba(0, 0, 0, 0.55)) drop-shadow(0px 0.603px 37.684px rgba(0, 0, 0, 0.42)) drop-shadow(0px 2px 125px rgba(0, 0, 0, 0.29));
 }
 
 .divider-image {
@@ -92,7 +92,7 @@ header {
     /* border-radius: 50%; */
     margin-right: 20px;
     flex-shrink: 0;
-    text-shadow: 0 0 5px rgba(25, 26, 25, 0.7);
+    text-shadow: 0 0 8px rgba(25, 26, 25, 0.9);
 }
 
 .song-text {
@@ -106,7 +106,7 @@ header {
     word-break: break-all !important;
     white-space: pre-wrap !important;
     padding-right: 70px;
-    text-shadow: 0 0 5px rgba(25, 26, 25, 0.7);
+    text-shadow: 0 0 8px rgba(25, 26, 25, 0.9);
 }
 
 .special-format .song-number {
@@ -142,7 +142,7 @@ header {
     background-size: contain;
     color: transparent;
     margin: 12px 32px 12px 12px;
-    text-shadow: 0 0 5px rgba(25, 26, 25, 0.7);
+    text-shadow: 0 0 8px rgba(25, 26, 25, 0.9);
 }
 
 .current-song .song-text {
