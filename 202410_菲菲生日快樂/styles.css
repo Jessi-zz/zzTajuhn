@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Serif+TC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Serif+TC:wght@400;700;900&display=swap');
 
 body {
     font-family: 'Noto Serif TC', serif;
@@ -97,7 +97,7 @@ header {
 
 .song-text {
     font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 32px;
     letter-spacing: 1.6px;
     flex-grow: 1;
