@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可希歌單</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="display" class="page">
+        <div class="fixed-header">
+            <header>
+                <div class="title-image">
+                </div>
+            </header>
+        </div>
+        <div class="list-frame">
+            <div class="scrollable-area">
+                <div id="songList" class="song-list">
+                    <ol id="sungSongsList"></ol>
+                </div>
+            </div>
+            <div id="ecgContainer" class="ecg-container">
+                <object id="ECG" data="./media/ECG.svg" type="image/svg+xml"></object>
+            </div>
+            <div id="currentSong" class="current-song">
+                <!-- 現正演唱的歌曲將在這裡顯示 -->
+            </div>
+        </div>
+        <div class="list-frame-decoration"></div>
+    </div>
+    <script src="display.js"></script>
+</body>
+</html>
