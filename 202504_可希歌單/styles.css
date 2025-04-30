@@ -1,0 +1,353 @@
+@import url("./image.css");
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Madimi+One&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'Gen Jyuu';
+    src: url('GENJYUUGOTHIC-HEAVY.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; /* 控制字型載入行為 */
+  }
+
+body {
+    font-family:'Gen Jyuu';
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    color: #ffffff;
+}
+
+.page {
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    margin: 0px auto;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.fixed-header {
+    flex-shrink: 0;
+    position: relative;
+    left:0px;
+    top:60px;
+    z-index: 2;
+}
+
+header {
+    /* text-align: center; */
+    margin-bottom: 20px;
+}
+
+.title-image {
+    position: flex;
+    display: block;
+    width: 320px;
+    height: 80px;
+    background-image: var(--svg-title);
+    transform: scale(1.2);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.divider {
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow: hidden;
+    filter: drop-shadow(0px 0.25px 6.386px #000) drop-shadow(0px 2px 20px rgba(0, 0, 0, 0.80));
+}
+
+.list-frame {
+    min-height: 200px;
+    max-height: calc(100vh - 200px);
+    background: linear-gradient(to bottom, rgba(217,119,91,0.44), rgba(255,193,176,0.44));
+    border: 6px solid #fce9c7;
+    border-radius: 40px;
+    position: relative; /* 確保正確的定位上下文 */
+    overflow: hidden; /* 防止現正演唱歌曲溢出邊框 */
+    display: flex;
+    flex-direction: column;
+    transition: height 0.3s ease, max-height 0.3s ease, opacity 0.3s ease; /* 平滑過渡高度和透明度變化 */
+}
+
+/* 自然模式（歌曲較少）的樣式 */
+.list-frame.natural-mode {
+    height: auto !important; /* 確保高度自適應內容 */
+}
+
+/* 僅有現正演唱歌曲的模式 - 隱藏框架 */
+.list-frame.only-current-mode {
+    display: none !important;
+}
+
+/* 空狀態模式 - 框架保持但特別樣式 */
+.list-frame.empty-mode {
+    min-height: 120px; /* 減少空狀態下的最小高度 */
+    background: linear-gradient(to bottom, rgba(217,119,91,0.25), rgba(255,193,176,0.25)); /* 降低透明度 */
+}
+
+.list-frame::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 36px;
+    height: 32px;
+    right:30px;
+    top: 30px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: var(--svg-right-top-deco);
+}
+
+.list-frame-decoration {
+    position: absolute;
+    width: 100px;
+    height: 112px;
+    right: -20px;
+    bottom: 0;
+    transform: translateY(80%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: var(--svg-right-bottom-deco);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.scrollable-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    position: relative;
+    padding: 80px 40px 0px 40px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    transition: height 0.3s ease, max-height 0.3s ease; /* 平滑過渡高度變化 */
+}
+
+.scrollable-area::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+.song-list {
+    position: relative;
+    transition: padding-bottom 0.3s ease;
+    /* 確保歌單元素不會遮罩底部的現正演唱歌曲 */
+    overflow: visible;
+}
+
+.song-list ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.song-number {
+    display: flex;
+    font-family: 'Madimi One', sans-serif;
+    font-size: 30px;
+    color: #FFF;
+    width: 40px;
+    height: 40px;
+    background-color: #d9775b;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.song-list li:nth-child(even) .song-number {
+    background-color: #56a7a8;
+}
+
+.song-text {
+    font-family: 'Gen Jyuu', sans-serif;
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: 100nm;
+    flex-grow: 1;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: pre-wrap !important;
+    text-shadow: 0 0 8px #d9775b, 
+                0 0 12px #d9775b, 
+                0 0 16px #d9775b, 
+                0 0 22px #d9775b;
+}
+
+.song-list li.special-format .song-number{
+    background-color: transparent;
+    background-image: var(--svg-special-mark);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: none !important;
+}
+
+.current-song {
+    position: relative; /* 確保有正確的定位上下文 */
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    margin-left: 20px;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-break: break-all !important;
+    white-space: pre-wrap !important;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+/* 自然模式下的現正演唱歌曲 */
+.natural-mode .current-song {
+    margin-top: 10px; /* 與已唱過歌曲保持一定距離 */
+}
+
+/* 情況E：僅有現正演唱，沒有已唱過的曲目 - 現正演唱歌曲上移40px */
+.empty-mode .current-song {
+    margin-top: -40px; /* 向上移動 */
+}
+
+/* 情況F：無現正演唱，也沒有已唱過的曲目 - 隱藏框架 */
+.only-current-mode {
+    display: none !important; /* 確保完全隱藏 */
+}
+
+.current-song .song-number {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    margin-left: 20px;
+    background-image: var(--svg-now);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    color: transparent;
+    margin: 12px 12px 12px 12px;
+    border-radius: 0%;
+}
+
+.current-song .song-text {
+    padding-right: 20px;
+    color: #ffffff;
+}
+
+.now-singing {
+    display: none;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #6AECE7;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    width: 60px;
+}
+
+/* 固定在底部的樣式 - 優化底部空間 */
+.current-song.fixed {
+    position: absolute;
+    bottom: 8px;
+    left: -20px;
+    width: 100%;
+    z-index: 10;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* 情況B：無現正演唱、歌單長於顯示範圍時，底部預留更多空間 */
+.fixed-mode .scrollable-area {
+    padding-bottom: 20px; /* 增加底部填充 */
+}
+
+/* 情況D：有現正演唱、歌單長於顯示範圍時，減少底部多餘空間 */
+.fixed-mode .song-list {
+    padding-bottom: 5px; /* 減小底部間距 */
+}
+
+/* ECG SVG 相關樣式 */
+.ecg-container {
+    position: relative;
+    width: 100%;
+    height: 1px ;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    z-index: 3;
+    margin-bottom: -2px;
+    transition: all 0.3s ease;
+}
+
+/* 當沒有現正演唱歌曲時隱藏ECG */
+.ecg-container:not(.ecg-visible) {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* 確保ECG SVG填滿容器 */
+#ECG {
+    width: 100%;
+    height: auto;
+    display: block;
+    right: 0px;
+}
+
+/* 固定模式下 ECG 的特殊調整 */
+.fixed-mode .ecg-container {
+    position: absolute;
+    bottom: 110px; /* 調整位置在固定的現正演唱歌曲上方 */
+    left: 0;
+    width: 100%;
+}
+
+/* 空模式下 ECG 的特殊調整 */
+.empty-mode .ecg-container {
+    margin-bottom: 0px;
+}
+
+/* 為了防止視窗大小變化時布局崩潰的媒體查詢 */
+@media (max-height: 500px) {
+    .list-frame {
+        min-height: 150px;
+    }
+    
+    .scrollable-area {
+        padding-top: 40px;
+    }
+    
+    .song-text {
+        font-size: 24px;
+    }
+
+    /* 小屏幕上調整空狀態下的現正演唱歌曲位置 - 情況E */
+    .empty-mode .current-song {
+        margin-top: -30px; /* 在小屏幕上稍微減少上移距離 */
+    }
+}
+
+/* 定義淡入動畫 */
+@keyframes fadeIn {
+    from { opacity: 0.5; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
